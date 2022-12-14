@@ -8,14 +8,25 @@ public class Car extends Transport implements Competing {
 
     private final int maxSpeed;                     //максимальная скорость
 
-    private final String countryManufacture;        //страна производства
+    private final String countryManufacture;        //страна
 
-    protected Car (String marka, String model, double engineVolume, String colour, int numberSeats, int maxSpeed, String countryManufacture) {
+    private BodyType bodyType;
+
+    protected Car (String marka, String model, double engineVolume, String colour, int numberSeats, int maxSpeed, String countryManufacture, BodyType bodyType) {
         super(marka, model, engineVolume);
         this.colour = colour;
         this.numberSeats = numberSeats;
         this.maxSpeed = maxSpeed;
         this.countryManufacture = countryManufacture;
+        this.bodyType = bodyType;
+    }
+
+    public BodyType getBodyType() {
+        return bodyType;
+    }
+
+    public void setBodyType(BodyType bodyType) {
+        this.bodyType = bodyType;
     }
 
     public String getColour() {
