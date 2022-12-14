@@ -52,5 +52,6 @@ public class Main {
         System.out.println(categoryB);
         System.out.println(categoryC);
         System.out.println(categoryD);
+        System.out.println("Домашнее задание по теме Enum");
     }
 }
