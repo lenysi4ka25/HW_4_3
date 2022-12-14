@@ -56,6 +56,15 @@ public class Car extends Transport implements Competing {
     }
 
     @Override
+    public void determineTypeCar() {
+        if (bodyType == null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            System.out.println("Тип кузова - " + bodyType.toString());
+        }
+    }
+
+    @Override
     public String toString() {
         return  super.toString() +
                 ", цвет - " + colour  +

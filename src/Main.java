@@ -1,25 +1,25 @@
 public class Main {
     public static void main(String[] args) {
         Bus ikarus = new Bus("Икарус", "263", 20, "Санкт-Петербург - Псков",
-                100, 1870, 2005);
+                100, 1870, 2005, NumberSeatsBus.VERYBIG);
         Bus kia = new Bus("Киа", "Grandbird", 11, "Санкт-Петербург - Великий Новгород",
-                40, 1200, 2014);
+                40, 1200, 2014, NumberSeatsBus.AVERAGE);
         Bus daf = new Bus("DAF", "MB", 6, "Санкт-Петербург - Сестрорецк",
-                54, 1200, 2009);
+                54, 1200, 2009, NumberSeatsBus.BIG);
         Bus vektor = new Bus("Вектор", "Next", 5, "Санкт-Петербург - Кириши",
-                25, 500, 2020);
-        Car volvo = new Car("Volvo", "S60", 2, "белый", 5, 195, "Швеция");
-        Car toyota = new Car("Toyota", "Camry", 3.2, "черный", 5, 210, "Россия");
-        Car kiaOptima = new Car("Kia", "Optima", 2, "синий", 5, 190, "Россия");
-        Car honda = new Car("Honda", "Civic", 1.6, "черный", 5, 180, "Мексика");
+                25, 500, 2020, NumberSeatsBus.ESPECIALLYSMALL);
+        Car volvo = new Car("Volvo", "S60", 2, "белый", 5, 195, "Швеция", BodyType.VAN);
+        Car toyota = new Car("Toyota", "Camry", 3.2, "черный", 5, 210, "Россия", BodyType.SEDAN);
+        Car kiaOptima = new Car("Kia", "Optima", 2, "синий", 5, 190, "Россия", BodyType.SEDAN);
+        Car honda = new Car("Honda", "Civic", 1.6, "черный", 5, 180, "Мексика", BodyType.HATCHBACK);
         Truck man = new Truck("MAN", "TGL", 4.6, "Парнас",
-                25, 3500, "верхняя");
+                25, 3500, "верхняя", TypeLoadCapacity.N1);
         Truck volkswagen = new Truck("Volkswagen", "Crafter", 2, "Кушелевка",
-                10, 1200, "задняя, боковая");
+                10, 1200, "задняя, боковая", TypeLoadCapacity.N1);
         Truck ford = new Truck("Ford", "Transporter", 2, "Шушары",
-                12, 1500, "задняя, боковая");
+                12, 1500, "задняя, боковая", TypeLoadCapacity.N1);
         Truck citroen   = new Truck("Citroen", "Jump", 2, "морской порт",
-                11, 1500, "задняя, боковая");
+                11, 1500, "задняя, боковая", TypeLoadCapacity.N1);
         DriverB categoryB = new DriverB ("Зайцев Константин Анатольевич", "категория В", 10, volvo);
         DriverC categoryC = new DriverC("Николаев Алексей Александрович", "категория С", 30, man);
         DriverD categoryD = new DriverD("Афанасьев Сергей Анатольевич", "категория D", 40, daf);
@@ -52,6 +52,9 @@ public class Main {
         System.out.println(categoryB);
         System.out.println(categoryC);
         System.out.println(categoryD);
-        System.out.println("Домашнее задание по теме Enum");
+        System.out.println("Домашнее задание по теме E-нам");
+        ikarus.determineTypeCar();
+        kiaOptima.determineTypeCar();
+        citroen.determineTypeCar();
     }
 }
