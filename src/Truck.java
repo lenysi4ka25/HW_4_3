@@ -8,13 +8,24 @@ public class Truck extends Transport implements Competing {
 
     private final String downloadType;              //тип загрузки
 
+    private TypeLoadCapacity typeLoadCapacity;
+
     protected Truck (String marka, String model, double engineVolume, String downloadAddress, double maximumCargoVolume,
-                     double maximumCargoWeight, String downloadType) {
+                     double maximumCargoWeight, String downloadType, TypeLoadCapacity typeLoadCapacity) {
         super(marka, model, engineVolume);
         this.downloadAddress = downloadAddress;
         this.maximumCargoVolume = maximumCargoVolume;
         this.maximumCargoWeight = maximumCargoWeight;
         this.downloadType = downloadType;
+        this.typeLoadCapacity = typeLoadCapacity;
+    }
+
+    public TypeLoadCapacity getTypeLoadCapacity() {
+        return typeLoadCapacity;
+    }
+
+    public void setTypeLoadCapacity(TypeLoadCapacity typeLoadCapacity) {
+        this.typeLoadCapacity = typeLoadCapacity;
     }
 
     public String getDownloadAddress() {
@@ -41,6 +52,17 @@ public class Truck extends Transport implements Competing {
     @Override
     public void spopMoving() {
 
+    }
+
+    @Override
+    public void determineTypeCar() {
+        if (typeLoadCapacity == null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            String from = typeLoadCapacity.getFrom() == null ? "" : "от " + typeLoadCapacity.getFrom();
+            String to = typeLoadCapacity.getTo() == null ? "" : " до " + typeLoadCapacity.getTo();
+            System.out.println("Тип авто по грузоподьемности - " + from + to + " тонн.");
+        }
     }
 
     @Override

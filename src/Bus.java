@@ -8,12 +8,24 @@ public class Bus extends Transport implements Competing {
 
     private final int yearProductione;              //год выпуска
 
-    protected Bus (String marka, String model, double engineVolume, String route, int numberPassengers, int maximumBaggageWeight, int yearProductione) {
+    private NumberSeatsBus numberSeatsBus;
+
+    protected Bus (String marka, String model, double engineVolume, String route, int numberPassengers,
+                   int maximumBaggageWeight, int yearProductione, NumberSeatsBus numberSeatsBus) {
         super(marka, model, engineVolume);
         this.route = route;
         this.numberPassengers = numberPassengers;
         this.maximumBaggageWeight = maximumBaggageWeight;
         this.yearProductione = yearProductione;
+        this.numberSeatsBus = numberSeatsBus;
+    }
+
+    public NumberSeatsBus getNumberSeatsBus() {
+        return numberSeatsBus;
+    }
+
+    public void setNumberSeatsBus(NumberSeatsBus numberSeatsBus) {
+        this.numberSeatsBus = numberSeatsBus;
     }
 
     public String getRoute() {
@@ -40,6 +52,15 @@ public class Bus extends Transport implements Competing {
     @Override
     public void spopMoving() {
 
+    }
+
+    @Override
+    public void determineTypeCar() {
+        if (numberSeatsBus == null) {
+            System.out.println("Данных по авто недостаточно");
+        } else {
+            System.out.println("Количество мест в автобусе - " + numberSeatsBus.getFrom() + " до " + numberSeatsBus.getTo() + " пассажировю");
+        }
     }
 
     @Override

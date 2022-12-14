@@ -50,10 +50,14 @@ public abstract class Transport {
 
     public abstract void spopMoving();   //метод закончить движение
 
+    public abstract void determineTypeCar();        //Определить тип авто
+
     @Override
     public String toString() {
         return    " марка - " + marka +
                 ", модель - " + model +
                 ", объем двигателя - " + engineVolume;
     }
+
+
 }
